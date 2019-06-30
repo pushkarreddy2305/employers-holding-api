@@ -10,6 +10,16 @@ router.get('/',
     }
 )
 
+router.get('/:id',
+    (req,res) => {
+        console.log("id",req.params.id)
+        controller.findById(req.params.id)
+            .then(project => {
+                res.send(project)
+            })
+    }
+)
+
 router.get('/:search',
     (req,res) => {
         controller.find(req.params.search)

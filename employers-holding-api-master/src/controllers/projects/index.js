@@ -3,7 +3,6 @@ const {projectModel} = require("../../models");
 
 function create(name,description){
     var newProj = new projectModel({
-        id,
         name,
         description,
     })
@@ -23,6 +22,10 @@ function find(search){
             {name:regex}
         ]
     }).exec();
+}
+
+function findById(id){
+    return  projectModel.findOne({_id:id}).exec()
 }
 
 async function edit(id,name,description){
@@ -45,4 +48,5 @@ module.exports = {
     find,
     findAll,
     edit,
+    findById
 }
